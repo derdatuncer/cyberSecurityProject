@@ -1,0 +1,1054 @@
+id,label,attack_type,source_pcap,window_index,summary
+1,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,10,"Time window #10: duration=9.5s, total_packets=531
+Protocol mix: ARP=522, UDP=9, DNS=8
+Top source IPs: 192.168.100.1 (gateway)=5, 192.168.100.50 (kali_attacker)=4
+Top dest IPs: 192.168.100.1 (gateway)=4, 192.168.100.50 (kali_attacker)=4, 239.255.255.250=1
+ARP: requests=512, replies=10, distinct_announced_IPs=4
+DNS queries: count=4, examples=['150.100.168.192.in-addr.arpa', '51.100.168.192.in-addr.arpa', '1.100.168.192.in-addr.arpa', '50.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+2,malicious,dhcp_poison,05_dhcp_poisoning.pcap,12,"Time window #12: duration=9.5s, total_packets=24
+Protocol mix: UDP=16, DHCP=8, DNS=6, ARP=4
+Top source IPs: 192.168.100.200 (internal_host)=9, 192.168.100.50 (kali_attacker)=4, 0.0.0.0=4, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 224.0.0.251=6, 224.0.0.22=4, 192.168.100.50 (kali_attacker)=3, 255.255.255.255=2, 192.168.100.200 (internal_host)=2
+ARP: requests=2, replies=2, distinct_announced_IPs=3
+DNS queries: count=5, examples=['d.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa', '_ipps._tcp.local']
+DHCP types: REQUEST=2, ACK=2, OFFER=2, RELEASE=1, DISCOVER=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: none"
+3,malicious,dhcp_poison,05_dhcp_poisoning.pcap,23,"Time window #23: duration=9.9s, total_packets=24
+Protocol mix: UDP=17, DNS=11, DHCP=6, ARP=3
+Top source IPs: 192.168.100.150 (internal_host)=14, 0.0.0.0=4, 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=1
+Top dest IPs: 224.0.0.251=11, 224.0.0.22=4, 255.255.255.255=2, 192.168.100.150 (internal_host)=2, 192.168.100.1 (gateway)=1
+ARP: requests=1, replies=2, distinct_announced_IPs=2
+DNS queries: count=7, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: OFFER=2, RELEASE=1, DISCOVER=1, REQUEST=1, ACK=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+4,malicious,arp_spoof,03_arp_spoof.pcap,13,"Time window #13: duration=10.0s, total_packets=1249
+Protocol mix: ARP=1239, UDP=9, DNS=4, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.255 (internal_host)=2, 192.168.100.1 (gateway)=2, 239.255.255.250=2, 192.168.100.51 (internal_host)=1
+ARP: requests=1218, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+5,malicious,dns_spoof,04_dns_spoofing.pcap,6,"Time window #6: duration=9.5s, total_packets=26
+Protocol mix: ARP=20, UDP=6, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+ARP: requests=0, replies=20, distinct_announced_IPs=2
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+6,normal,,02_normal.pcap,46,"Time window #46: duration=9.0s, total_packets=8
+Protocol mix: TCP=4, UDP=2, ARP=2
+Top source IPs: 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=2, 192.168.100.50 (kali_attacker)=1, 62.106.94.7=1
+Top dest IPs: 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2, 62.106.94.7=1, 192.168.100.50 (kali_attacker)=1
+TCP flags: ACK=4, PSH=2
+TCP distinct_dst_ports=2, top_ports=[(45786, 2), (22, 2)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+Behavioral indicators: none"
+7,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,5,"Time window #5: duration=9.8s, total_packets=22
+Protocol mix: TCP=19, ARP=2, UDP=1
+Top source IPs: 192.168.100.51 (internal_host)=10, 192.168.100.1 (gateway)=5, 185.125.190.101=4, 192.168.100.50 (kali_attacker)=1
+Top dest IPs: 192.168.100.51 (internal_host)=9, 192.168.100.1 (gateway)=6, 185.125.190.101=4, 62.106.94.7=1
+TCP flags: ACK=17, PSH=6, SYN=4, FIN=2
+TCP distinct_dst_ports=4, top_ports=[(53, 6), (37310, 5), (80, 4), (46628, 4)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+Behavioral indicators: none"
+8,normal,,02_normal.pcap,17,"Time window #17: duration=9.8s, total_packets=3733
+Protocol mix: TCP=2472, UDP=1261
+Top source IPs: 192.168.100.51 (internal_host)=1477, 172.66.162.110=643, 172.217.23.130=213, 192.168.100.1 (gateway)=129, 104.18.11.207=103
+Top dest IPs: 192.168.100.51 (internal_host)=2253, 192.168.100.1 (gateway)=252, 104.18.20.56=89, 172.66.162.110=71, 34.107.165.188=58
+TCP flags: ACK=2361, PSH=1076, SYN=215, FIN=58, RST=23
+TCP distinct_dst_ports=119, top_ports=[(443, 916), (53, 252), (80, 109), (55698, 86), (57610, 65), (52012, 61), (55512, 42), (47996, 35), (39764, 25), (46128, 23)]
+Behavioral indicators: port_scan_signature (distinct_dst_ports=119, SYN=215, RST=23)"
+9,normal,,02_normal.pcap,22,"Time window #22: duration=10.0s, total_packets=105
+Protocol mix: TCP=81, ICMP=20, UDP=2, ARP=2
+Top source IPs: 192.168.100.51 (internal_host)=51, 192.168.100.1 (gateway)=11, 172.66.156.205=6, 3.165.245.25=5, 192.178.24.35=5
+Top dest IPs: 192.168.100.51 (internal_host)=50, 192.168.100.1 (gateway)=12, 172.66.156.205=6, 3.165.245.25=5, 192.178.24.35=5
+TCP flags: ACK=81, PSH=8, FIN=2
+TCP distinct_dst_ports=39, top_ports=[(80, 30), (443, 9), (53, 2), (43420, 2), (36352, 2), (59688, 2), (36384, 2), (46996, 1), (46108, 1), (46092, 1)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+Behavioral indicators: none"
+10,normal,,02_normal.pcap,8,"Time window #8: duration=9.8s, total_packets=286
+Protocol mix: TCP=251, UDP=30, ARP=4, DNS=1
+Top source IPs: 192.168.100.51 (internal_host)=140, 192.0.33.8=36, 142.251.157.119=21, 192.168.100.1 (gateway)=20, 192.0.43.8=17
+Top dest IPs: 192.168.100.51 (internal_host)=141, 192.0.33.8=35, 192.168.100.1 (gateway)=30, 192.0.43.8=17, 104.18.38.233=12
+TCP flags: ACK=236, PSH=91, SYN=28, FIN=1, RST=1
+TCP distinct_dst_ports=36, top_ports=[(443, 75), (53, 30), (80, 26), (45952, 20), (58760, 14), (55530, 13), (55428, 7), (55416, 5), (55406, 5), (58768, 5)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+DNS queries: count=1, examples=['_ftp._tcp.local']
+Behavioral indicators: none"
+11,malicious,arp_spoof,03_arp_spoof.pcap,2,"Time window #2: duration=10.0s, total_packets=1245
+Protocol mix: ARP=1210, TCP=19, UDP=13, DNS=6, ICMP=1
+Top source IPs: 192.168.100.51 (internal_host)=11, 192.168.100.50 (kali_attacker)=10, 192.168.100.1 (gateway)=7, 185.125.190.100=4, 62.106.94.7=1
+Top dest IPs: 192.168.100.51 (internal_host)=10, 192.168.100.1 (gateway)=8, 185.125.190.100=4, 192.168.100.50 (kali_attacker)=4, 224.0.0.251=2
+TCP flags: ACK=17, PSH=6, SYN=4, FIN=2
+TCP distinct_dst_ports=4, top_ports=[(53, 6), (57260, 5), (80, 4), (41070, 4)]
+ARP: requests=1208, replies=2, distinct_announced_IPs=2
+DNS queries: count=4, examples=['_services._dns-sd._udp.local', '1.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+12,malicious,dhcp_poison,05_dhcp_poisoning.pcap,22,"Time window #22: duration=9.7s, total_packets=34
+Protocol mix: UDP=26, DNS=15, DHCP=11, ARP=2
+Top source IPs: 192.168.100.200 (internal_host)=12, 192.168.100.150 (internal_host)=8, 0.0.0.0=6, 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=3
+Top dest IPs: 224.0.0.251=15, 224.0.0.22=6, 255.255.255.255=4, 192.168.100.200 (internal_host)=3, 192.168.100.150 (internal_host)=3
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=11, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: OFFER=4, DISCOVER=2, REQUEST=2, ACK=2, RELEASE=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: none"
+13,malicious,dns_spoof,04_dns_spoofing.pcap,3,"Time window #3: duration=6.8s, total_packets=6
+Protocol mix: UDP=4, DNS=4, ARP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+14,malicious,arp_spoof,03_arp_spoof.pcap,8,"Time window #8: duration=10.0s, total_packets=842
+Protocol mix: ARP=829, UDP=12, DNS=4, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=9, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1, 62.106.94.7=1
+Top dest IPs: 239.255.255.250=4, 192.168.100.50 (kali_attacker)=4, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1, 192.168.100.255 (internal_host)=1
+ARP: requests=807, replies=22, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); arp_conflict (IP 192.168.100.51 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=22)"
+15,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,14,"Time window #14: duration=10.0s, total_packets=233
+Protocol mix: UDP=223, DNS=27, ICMP=10
+Top source IPs: 192.168.100.50 (kali_attacker)=223, 192.168.100.150 (internal_host)=10
+Top dest IPs: 192.168.100.150 (internal_host)=223, 192.168.100.50 (kali_attacker)=10
+DNS queries: count=18, examples=['version.bind', '_services._dns-sd._udp.local']
+Behavioral indicators: none"
+16,malicious,port_scan_recon,01_recon_and_scan.pcap,1,"Time window #1: duration=5.4s, total_packets=516
+Protocol mix: ARP=513, TCP=2, UDP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=1, 192.168.100.51 (internal_host)=1, 185.125.190.27=1
+Top dest IPs: 62.106.94.7=1, 185.125.190.27=1, 192.168.100.51 (internal_host)=1
+TCP flags: ACK=2
+TCP distinct_dst_ports=2, top_ports=[(443, 1), (48958, 1)]
+ARP: requests=510, replies=3, distinct_announced_IPs=3
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+17,malicious,port_scan_recon,01_recon_and_scan.pcap,4,"Time window #4: duration=6.6s, total_packets=261
+Protocol mix: TCP=247, UDP=7, ICMP=5, DHCP=2, ARP=2, DNS=2
+Top source IPs: 192.168.100.50 (kali_attacker)=138, 192.168.100.51 (internal_host)=118, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.51 (internal_host)=135, 192.168.100.50 (kali_attacker)=121, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+TCP flags: SYN=122, ACK=119, RST=111, FIN=7, PSH=6
+TCP distinct_dst_ports=113, top_ports=[(38550, 100), (22, 30), (7, 4), (47978, 4), (80, 1), (113, 1), (8080, 1), (53, 1), (25, 1), (135, 1)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=1, examples=['51.100.168.192.in-addr.arpa']
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: port_scan_signature (distinct_dst_ports=113, SYN=122, RST=111)"
+18,normal,,02_normal.pcap,36,"Time window #36: duration=9.8s, total_packets=273
+Protocol mix: TCP=273
+Top source IPs: 192.168.100.51 (internal_host)=135, 192.168.100.1 (gateway)=8, 108.138.4.226=8, 172.217.23.131=6, 2.18.79.143=6
+Top dest IPs: 192.168.100.51 (internal_host)=138, 108.138.4.226=8, 192.168.100.1 (gateway)=7, 172.217.23.131=6, 2.18.79.143=5
+TCP flags: ACK=270, PSH=105, FIN=56, RST=3
+TCP distinct_dst_ports=43, top_ports=[(443, 120), (45786, 8), (80, 8), (22, 7), (56400, 6), (45842, 6), (59628, 4), (39228, 4), (51314, 4), (33088, 4)]
+Behavioral indicators: none"
+19,malicious,arp_spoof,03_arp_spoof.pcap,17,"Time window #17: duration=10.0s, total_packets=1182
+Protocol mix: ARP=1168, UDP=13, DNS=4, DHCP=2, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=9, 192.168.100.1 (gateway)=3, 62.106.94.7=1, 192.168.100.51 (internal_host)=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=5, 192.168.100.1 (gateway)=3, 192.168.100.255 (internal_host)=2, 239.255.255.250=2, 62.106.94.7=1
+ARP: requests=1146, replies=22, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=22)"
+20,malicious,dns_spoof,04_dns_spoofing.pcap,24,"Time window #24: duration=2.1s, total_packets=5
+Protocol mix: ARP=3, UDP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=1, 62.106.94.7=1
+Top dest IPs: 62.106.94.7=1, 192.168.100.50 (kali_attacker)=1
+ARP: requests=3, replies=0, distinct_announced_IPs=1
+Behavioral indicators: none"
+21,normal,,02_normal.pcap,42,"Time window #42: duration=7.9s, total_packets=9
+Protocol mix: TCP=8
+Top source IPs: 192.168.100.51 (internal_host)=4, 151.101.130.137=4
+Top dest IPs: 151.101.130.137=4, 192.168.100.51 (internal_host)=4
+TCP flags: ACK=7, PSH=3, FIN=2, RST=1
+TCP distinct_dst_ports=2, top_ports=[(443, 4), (59826, 4)]
+Behavioral indicators: none"
+22,malicious,dns_spoof,04_dns_spoofing.pcap,17,"Time window #17: duration=9.6s, total_packets=43
+Protocol mix: ARP=22, UDP=16, DNS=16, ICMP=5
+Top source IPs: 192.168.100.1 (gateway)=10, 192.168.100.150 (internal_host)=8, 192.168.100.50 (kali_attacker)=3
+Top dest IPs: 192.168.100.1 (gateway)=11, 192.168.100.150 (internal_host)=8, 192.168.100.50 (kali_attacker)=2
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=6, examples=['example.com', '1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.150 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+23,malicious,dhcp_poison,05_dhcp_poisoning.pcap,4,"Time window #4: duration=6.8s, total_packets=6
+Protocol mix: UDP=6
+Top source IPs: 192.168.100.1 (gateway)=4, 192.168.100.51 (internal_host)=1, 185.125.190.56=1
+Top dest IPs: 239.255.255.250=4, 185.125.190.56=1, 192.168.100.51 (internal_host)=1
+Behavioral indicators: none"
+24,malicious,dhcp_poison,05_dhcp_poisoning.pcap,6,"Time window #6: duration=9.8s, total_packets=34
+Protocol mix: UDP=23, DNS=12, DHCP=9, ARP=4, ICMP=2
+Top source IPs: 192.168.100.200 (internal_host)=17, 0.0.0.0=6, 192.168.100.50 (kali_attacker)=6, 62.106.94.7=1
+Top dest IPs: 224.0.0.251=12, 192.168.100.200 (internal_host)=5, 224.0.0.22=5, 255.255.255.255=4, 192.168.100.50 (kali_attacker)=3
+ARP: requests=3, replies=1, distinct_announced_IPs=2
+DNS queries: count=9, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: DISCOVER=2, OFFER=2, REQUEST=2, ACK=2, RELEASE=1
+Behavioral indicators: none"
+25,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,12,"Time window #12: duration=5.6s, total_packets=2011
+Protocol mix: TCP=2001, UDP=8, DNS=6, ARP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=1005, 192.168.100.150 (internal_host)=1000, 192.168.100.1 (gateway)=3, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=1004, 192.168.100.150 (internal_host)=1001, 192.168.100.1 (gateway)=3, 62.106.94.7=1
+TCP flags: SYN=1001, ACK=1000, RST=1000
+TCP distinct_dst_ports=1001, top_ports=[(57595, 1000), (22, 2), (25, 1), (995, 1), (80, 1), (256, 1), (111, 1), (443, 1), (110, 1), (21, 1)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=3, examples=['150.100.168.192.in-addr.arpa', '0.debian.pool.ntp.org']
+Behavioral indicators: port_scan_signature (distinct_dst_ports=1001, SYN=1001, RST=1000)"
+26,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,7,"Time window #7: duration=9.6s, total_packets=452
+Protocol mix: TCP=438, UDP=5, ICMP=5, ARP=4, DNS=3
+Top source IPs: 192.168.100.50 (kali_attacker)=234, 192.168.100.150 (internal_host)=214
+Top dest IPs: 192.168.100.150 (internal_host)=230, 192.168.100.50 (kali_attacker)=214, 192.168.100.1 (gateway)=3, 62.106.94.7=1
+TCP flags: SYN=220, ACK=211, RST=211, FIN=5, PSH=5
+TCP distinct_dst_ports=212, top_ports=[(48277, 200), (22, 25), (1, 4), (554, 1), (993, 1), (113, 1), (1720, 1), (139, 1), (80, 1), (445, 1)]
+ARP: requests=2, replies=2, distinct_announced_IPs=3
+DNS queries: count=3, examples=['150.100.168.192.in-addr.arpa']
+Behavioral indicators: port_scan_signature (distinct_dst_ports=212, SYN=220, RST=211)"
+27,malicious,dns_spoof,04_dns_spoofing.pcap,2,"Time window #2: duration=7.9s, total_packets=6
+Protocol mix: UDP=6, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+28,malicious,dhcp_poison,05_dhcp_poisoning.pcap,17,"Time window #17: duration=9.8s, total_packets=33
+Protocol mix: UDP=25, DNS=14, DHCP=11, ARP=2
+Top source IPs: 192.168.100.200 (internal_host)=19, 0.0.0.0=6, 192.168.100.50 (kali_attacker)=4, 192.168.100.1 (gateway)=2
+Top dest IPs: 224.0.0.251=14, 224.0.0.22=6, 255.255.255.255=4, 192.168.100.200 (internal_host)=4, 192.168.100.150 (internal_host)=2
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=10, examples=['d.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa', '_ipps._tcp.local']
+DHCP types: OFFER=4, DISCOVER=2, REQUEST=2, ACK=2, RELEASE=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: none"
+29,normal,,02_normal.pcap,24,"Time window #24: duration=9.5s, total_packets=923
+Protocol mix: TCP=820, UDP=83, ICMP=20
+Top source IPs: 192.168.100.51 (internal_host)=442, 208.113.158.104=68, 172.217.23.131=62, 146.75.116.157=49, 172.217.18.168=40
+Top dest IPs: 192.168.100.51 (internal_host)=481, 208.113.158.104=61, 192.168.100.1 (gateway)=54, 146.75.116.157=48, 172.217.18.168=35
+TCP flags: ACK=791, PSH=345, SYN=36, FIN=27, RST=11
+TCP distinct_dst_ports=83, top_ports=[(443, 315), (53, 54), (34362, 48), (80, 41), (59772, 38), (46258, 37), (41678, 19), (58590, 16), (44158, 13), (56400, 12)]
+Behavioral indicators: port_scan_signature (distinct_dst_ports=83, SYN=36, RST=11)"
+30,normal,,02_normal.pcap,49,"Time window #49: duration=7.5s, total_packets=464
+Protocol mix: TCP=460, ARP=4
+Top source IPs: 192.168.100.51 (internal_host)=231, 192.168.100.1 (gateway)=229
+Top dest IPs: 192.168.100.1 (gateway)=231, 192.168.100.51 (internal_host)=229
+TCP flags: ACK=460, PSH=456
+TCP distinct_dst_ports=2, top_ports=[(22, 231), (45786, 229)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: none"
+31,malicious,arp_spoof,03_arp_spoof.pcap,9,"Time window #9: duration=10.0s, total_packets=1196
+Protocol mix: ARP=1183, UDP=10, DNS=5, ICMP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=8, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.50 (kali_attacker)=4, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2, 239.255.255.250=2, 192.168.100.255 (internal_host)=1
+ARP: requests=1162, replies=21, distinct_announced_IPs=3
+DNS queries: count=3, examples=['1.100.168.192.in-addr.arpa', '_services._dns-sd._udp.local']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+32,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,3,"Time window #3: duration=8.0s, total_packets=298
+Protocol mix: ARP=258, UDP=16, DNS=12
+Top source IPs: 192.168.100.1 (gateway)=14, 192.168.100.50 (kali_attacker)=12
+Top dest IPs: 192.168.100.1 (gateway)=12, 224.0.0.22=10, 224.0.0.252=4
+ARP: requests=255, replies=3, distinct_announced_IPs=2
+DNS queries: count=12, examples=['150.100.168.192.in-addr.arpa', '51.100.168.192.in-addr.arpa', '1.100.168.192.in-addr.arpa', '50.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+33,malicious,arp_spoof,03_arp_spoof.pcap,22,"Time window #22: duration=8.6s, total_packets=848
+Protocol mix: ARP=778, ICMP=32, TCP=30, UDP=8, DNS=4
+Top source IPs: 192.168.100.51 (internal_host)=31, 192.168.100.1 (gateway)=16, 172.217.18.174=10, 192.168.100.50 (kali_attacker)=9, 8.8.8.8=4
+Top dest IPs: 192.168.100.51 (internal_host)=30, 192.168.100.1 (gateway)=20, 172.217.18.174=10, 8.8.8.8=4, 192.168.100.50 (kali_attacker)=3
+TCP flags: ACK=28, PSH=12, SYN=4
+TCP distinct_dst_ports=2, top_ports=[(53, 16), (54638, 14)]
+ARP: requests=758, replies=20, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); arp_conflict (IP 192.168.100.51 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=20)"
+34,normal,,02_normal.pcap,50,"Time window #50: duration=7.1s, total_packets=141
+Protocol mix: TCP=125, UDP=12, ICMP=4
+Top source IPs: 192.168.100.51 (internal_host)=64, 34.120.208.123=53, 192.168.100.1 (gateway)=10, 142.251.38.238=10, 34.107.243.93=4
+Top dest IPs: 192.168.100.51 (internal_host)=77, 34.120.208.123=40, 192.168.100.1 (gateway)=14, 142.251.38.238=6, 34.107.243.93=4
+TCP flags: ACK=122, PSH=51, SYN=6, FIN=6
+TCP distinct_dst_ports=6, top_ports=[(443, 44), (52316, 34), (52310, 19), (53, 14), (39132, 10), (35940, 4)]
+Behavioral indicators: none"
+35,normal,,02_normal.pcap,34,"Time window #34: duration=9.3s, total_packets=122
+Protocol mix: TCP=116, UDP=3, ARP=2, DNS=1
+Top source IPs: 192.168.100.51 (internal_host)=59, 192.168.100.1 (gateway)=7, 3.19.151.216=6, 192.178.24.35=5, 172.217.18.174=4
+Top dest IPs: 192.168.100.51 (internal_host)=58, 192.168.100.1 (gateway)=8, 192.178.24.35=5, 3.19.151.216=5, 172.217.18.174=4
+TCP flags: ACK=113, PSH=39, FIN=23, RST=2, SYN=2
+TCP distinct_dst_ports=24, top_ports=[(443, 42), (80, 8), (22, 8), (45786, 7), (44848, 6), (35604, 4), (42112, 4), (37614, 4), (55698, 4), (34116, 4)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=1, examples=['_ftp._tcp.local']
+Behavioral indicators: none"
+36,malicious,dhcp_poison,05_dhcp_poisoning.pcap,21,"Time window #21: duration=8.6s, total_packets=29
+Protocol mix: UDP=19, DNS=10, DHCP=7, ARP=4
+Top source IPs: 192.168.100.200 (internal_host)=13, 0.0.0.0=6, 192.168.100.50 (kali_attacker)=3, 192.168.100.51 (internal_host)=1, 192.168.100.1 (gateway)=1
+Top dest IPs: 224.0.0.251=10, 224.0.0.22=6, 192.168.100.50 (kali_attacker)=3, 255.255.255.255=2, 192.168.100.200 (internal_host)=2
+ARP: requests=2, replies=2, distinct_announced_IPs=3
+DNS queries: count=6, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: RELEASE=2, OFFER=2, DISCOVER=1, REQUEST=1, ACK=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: none"
+37,normal,,02_normal.pcap,3,"Time window #3: duration=10.0s, total_packets=6168
+Protocol mix: UDP=5345, TCP=823
+Top source IPs: 142.251.208.110=2801, 45.84.189.66=1444, 192.168.100.51 (internal_host)=1031, 172.217.23.131=302, 142.251.157.119=61
+Top dest IPs: 192.168.100.51 (internal_host)=5137, 142.251.208.110=278, 172.217.23.131=171, 192.168.100.1 (gateway)=90, 45.84.189.66=66
+TCP flags: ACK=784, PSH=356, SYN=56, FIN=32, RST=12
+TCP distinct_dst_ports=42, top_ports=[(443, 272), (53, 90), (80, 67), (59058, 42), (52316, 32), (45554, 19), (52856, 18), (49706, 18), (34018, 17), (45562, 15)]
+Behavioral indicators: port_scan_signature (distinct_dst_ports=42, SYN=56, RST=12)"
+38,normal,,02_normal.pcap,27,"Time window #27: duration=9.9s, total_packets=1200
+Protocol mix: UDP=626, TCP=574
+Top source IPs: 192.178.24.17=495, 192.168.100.51 (internal_host)=416, 192.178.25.227=79, 192.178.24.8=57, 172.217.23.131=52
+Top dest IPs: 192.168.100.51 (internal_host)=784, 192.178.24.17=160, 192.178.25.227=68, 192.178.24.8=54, 172.217.16.138=32
+TCP flags: ACK=555, PSH=220, SYN=24, FIN=20, RST=7
+TCP distinct_dst_ports=46, top_ports=[(443, 232), (40390, 57), (80, 46), (33990, 40), (58516, 23), (43446, 17), (53, 12), (58540, 11), (46878, 11), (40376, 10)]
+Behavioral indicators: none"
+39,normal,,02_normal.pcap,13,"Time window #13: duration=10.0s, total_packets=4424
+Protocol mix: TCP=2895, UDP=1529
+Top source IPs: 192.168.100.51 (internal_host)=2187, 142.251.156.119=581, 172.217.16.132=363, 172.217.21.228=359, 192.178.24.4=356
+Top dest IPs: 192.168.100.51 (internal_host)=2235, 142.251.156.119=659, 172.217.21.228=325, 172.217.16.132=323, 192.178.24.4=317
+TCP flags: ACK=2836, PSH=1382, SYN=86, FIN=59, RST=12
+TCP distinct_dst_ports=72, top_ports=[(443, 1308), (46744, 265), (44094, 256), (41402, 255), (56666, 252), (53, 51), (80, 49), (60290, 31), (55996, 31), (42462, 26)]
+Behavioral indicators: port_scan_signature (distinct_dst_ports=72, SYN=86, RST=12)"
+40,normal,,02_normal.pcap,29,"Time window #29: duration=10.0s, total_packets=277
+Protocol mix: TCP=217, UDP=60
+Top source IPs: 192.168.100.51 (internal_host)=133, 172.217.171.78=31, 3.165.245.25=17, 104.18.38.233=9, 192.178.24.35=5
+Top dest IPs: 192.168.100.51 (internal_host)=141, 172.217.171.78=20, 3.165.245.25=14, 104.18.38.233=9, 192.178.24.35=8
+TCP flags: ACK=214, PSH=71, FIN=21, RST=3
+TCP distinct_dst_ports=59, top_ports=[(443, 71), (80, 36), (46108, 5), (46092, 5), (46076, 5), (60274, 4), (45826, 4), (53816, 4), (41114, 3), (41110, 3)]
+Behavioral indicators: none"
+41,normal,,02_normal.pcap,41,"Time window #41: duration=9.9s, total_packets=83
+Protocol mix: TCP=78, UDP=5, DHCP=2
+Top source IPs: 192.168.100.51 (internal_host)=47, 192.168.100.1 (gateway)=24, 172.217.23.131=4, 146.75.116.157=4, 162.159.140.229=4
+Top dest IPs: 192.168.100.1 (gateway)=35, 192.168.100.51 (internal_host)=33, 172.217.23.131=4, 146.75.116.157=4, 162.159.140.229=4
+TCP flags: ACK=77, PSH=43, FIN=8, RST=1
+TCP distinct_dst_ports=8, top_ports=[(22, 32), (45786, 19), (443, 12), (48300, 4), (59772, 4), (44158, 4), (53, 2), (41166, 1)]
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: none"
+42,malicious,dhcp_poison,05_dhcp_poisoning.pcap,9,"Time window #9: duration=7.7s, total_packets=18
+Protocol mix: UDP=16, DNS=10, DHCP=4
+Top source IPs: 192.168.100.200 (internal_host)=12, 192.168.100.50 (kali_attacker)=3, 0.0.0.0=2, 62.106.94.7=1
+Top dest IPs: 224.0.0.251=10, 255.255.255.255=2, 192.168.100.200 (internal_host)=2, 224.0.0.22=2, 62.106.94.7=1
+DNS queries: count=7, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: DISCOVER=1, OFFER=1, REQUEST=1, ACK=1
+Behavioral indicators: none"
+43,malicious,dns_spoof,04_dns_spoofing.pcap,14,"Time window #14: duration=9.5s, total_packets=112
+Protocol mix: UDP=68, DNS=64, ICMP=22, ARP=22, DHCP=2
+Top source IPs: 192.168.100.150 (internal_host)=44, 192.168.100.1 (gateway)=35, 192.168.100.50 (kali_attacker)=10, 62.106.94.7=1
+Top dest IPs: 192.168.100.1 (gateway)=53, 192.168.100.150 (internal_host)=32, 192.168.100.50 (kali_attacker)=4, 62.106.94.7=1
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=18, examples=['ayazaga.com', '1.100.168.192.in-addr.arpa', 'amazon.com']
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: arp_conflict (IP 192.168.100.150 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+44,normal,,02_normal.pcap,15,"Time window #15: duration=10.0s, total_packets=1316
+Protocol mix: TCP=1316
+Top source IPs: 213.159.5.171=778, 192.168.100.51 (internal_host)=490, 172.66.156.205=6, 80.251.45.14=6, 192.178.24.35=4
+Top dest IPs: 192.168.100.51 (internal_host)=826, 213.159.5.171=432, 172.66.156.205=12, 80.251.45.14=6, 23.11.40.157=4
+TCP flags: ACK=1316, PSH=798, FIN=2
+TCP distinct_dst_ports=43, top_ports=[(49258, 778), (444, 432), (80, 29), (443, 27), (60832, 2), (41150, 2), (53, 2), (48718, 2), (38098, 2), (59024, 2)]
+Behavioral indicators: none"
+45,normal,,02_normal.pcap,48,"Time window #48: duration=10.0s, total_packets=1032
+Protocol mix: TCP=1030, UDP=2
+Top source IPs: 192.168.100.1 (gateway)=520, 192.168.100.51 (internal_host)=510, 192.168.100.50 (kali_attacker)=1, 62.106.94.7=1
+Top dest IPs: 192.168.100.51 (internal_host)=520, 192.168.100.1 (gateway)=510, 62.106.94.7=1, 192.168.100.50 (kali_attacker)=1
+TCP flags: ACK=1030, PSH=1011
+TCP distinct_dst_ports=2, top_ports=[(45786, 520), (22, 510)]
+Behavioral indicators: none"
+46,malicious,dns_spoof,04_dns_spoofing.pcap,1,"Time window #1: duration=6.8s, total_packets=8
+Protocol mix: UDP=4, ARP=4, DNS=2
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 62.106.94.7=1, 192.168.100.1 (gateway)=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=2, 62.106.94.7=1, 192.168.100.1 (gateway)=1
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+DNS queries: count=1, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+47,normal,,02_normal.pcap,14,"Time window #14: duration=10.0s, total_packets=2069
+Protocol mix: TCP=1848, UDP=217, ARP=4
+Top source IPs: 192.168.100.51 (internal_host)=894, 213.159.5.171=373, 157.240.234.1=148, 172.66.156.205=147, 146.75.116.157=51
+Top dest IPs: 192.168.100.51 (internal_host)=1171, 213.159.5.171=208, 172.66.156.205=130, 157.240.234.1=66, 192.168.100.1 (gateway)=52
+TCP flags: ACK=1799, PSH=914, SYN=93, FIN=71, RST=7
+TCP distinct_dst_ports=82, top_ports=[(80, 436), (49258, 361), (444, 196), (443, 151), (53, 52), (55386, 35), (55996, 28), (50092, 23), (50102, 21), (50110, 20)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: none"
+48,malicious,dhcp_poison,05_dhcp_poisoning.pcap,11,"Time window #11: duration=9.0s, total_packets=26
+Protocol mix: UDP=17, DNS=7, DHCP=6, ARP=5
+Top source IPs: 192.168.100.200 (internal_host)=10, 192.168.100.1 (gateway)=5, 0.0.0.0=4, 192.168.100.50 (kali_attacker)=2
+Top dest IPs: 224.0.0.251=7, 239.255.255.250=4, 224.0.0.22=4, 255.255.255.255=2, 192.168.100.200 (internal_host)=2
+ARP: requests=4, replies=1, distinct_announced_IPs=3
+DNS queries: count=5, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: OFFER=2, RELEASE=1, DISCOVER=1, REQUEST=1, ACK=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: none"
+49,malicious,arp_spoof,03_arp_spoof.pcap,12,"Time window #12: duration=10.0s, total_packets=950
+Protocol mix: ARP=937, UDP=11, DNS=4, ICMP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=9, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 239.255.255.250=4, 192.168.100.50 (kali_attacker)=4, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2, 192.168.100.255 (internal_host)=1
+ARP: requests=916, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+50,normal,,02_normal.pcap,7,"Time window #7: duration=7.4s, total_packets=167
+Protocol mix: TCP=165, UDP=2
+Top source IPs: 192.168.100.51 (internal_host)=80, 34.120.208.123=41, 192.168.100.1 (gateway)=17, 192.178.24.35=6, 34.107.221.82=5
+Top dest IPs: 192.168.100.51 (internal_host)=85, 192.168.100.1 (gateway)=30, 34.120.208.123=24, 192.178.24.35=6, 34.107.221.82=5
+TCP flags: ACK=163, PSH=72, SYN=2, FIN=2, RST=1
+TCP distinct_dst_ports=23, top_ports=[(443, 35), (57644, 31), (53, 30), (45952, 17), (80, 15), (54656, 10), (36150, 5), (37022, 3), (43254, 2), (37006, 2)]
+Behavioral indicators: none"
+51,normal,,02_normal.pcap,25,"Time window #25: duration=10.0s, total_packets=823
+Protocol mix: TCP=731, UDP=70, ICMP=22
+Top source IPs: 192.168.100.51 (internal_host)=394, 208.113.158.104=213, 172.64.150.190=30, 172.66.156.205=22, 151.101.130.137=21
+Top dest IPs: 192.168.100.51 (internal_host)=427, 208.113.158.104=190, 172.66.156.205=22, 151.101.130.137=21, 192.168.100.1 (gateway)=18
+TCP flags: ACK=725, PSH=309, FIN=21, SYN=8, RST=3
+TCP distinct_dst_ports=80, top_ports=[(443, 293), (57858, 209), (80, 49), (53, 18), (59826, 12), (46258, 9), (59820, 9), (34362, 4), (55530, 4), (34852, 3)]
+Behavioral indicators: none"
+52,malicious,arp_spoof,03_arp_spoof.pcap,16,"Time window #16: duration=10.0s, total_packets=1107
+Protocol mix: ARP=1096, UDP=9, DNS=4, ICMP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.50 (kali_attacker)=4, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2, 239.255.255.250=2, 192.168.100.255 (internal_host)=1
+ARP: requests=1076, replies=20, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+53,normal,,02_normal.pcap,33,"Time window #33: duration=10.0s, total_packets=113
+Protocol mix: TCP=67, UDP=46
+Top source IPs: 192.168.100.51 (internal_host)=52, 172.217.171.78=20, 104.236.86.11=16, 192.178.24.35=5, 192.178.24.17=5
+Top dest IPs: 192.168.100.51 (internal_host)=61, 172.217.171.78=14, 104.236.86.11=11, 192.178.24.17=7, 192.178.24.35=5
+TCP flags: ACK=67, PSH=20, FIN=15
+TCP distinct_dst_ports=19, top_ports=[(443, 23), (80, 8), (33956, 4), (43420, 4), (33964, 3), (33978, 3), (33984, 3), (33976, 3), (36384, 3), (59688, 3)]
+Behavioral indicators: none"
+54,malicious,dns_spoof,04_dns_spoofing.pcap,11,"Time window #11: duration=9.5s, total_packets=51
+Protocol mix: ARP=22, UDP=22, DNS=22, ICMP=7
+Top source IPs: 192.168.100.1 (gateway)=14, 192.168.100.150 (internal_host)=12, 192.168.100.50 (kali_attacker)=3
+Top dest IPs: 192.168.100.1 (gateway)=15, 192.168.100.150 (internal_host)=12, 192.168.100.50 (kali_attacker)=2
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=8, examples=['1.100.168.192.in-addr.arpa', 'google.com']
+Behavioral indicators: arp_conflict (IP 192.168.100.150 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+55,malicious,arp_spoof,03_arp_spoof.pcap,6,"Time window #6: duration=10.0s, total_packets=1236
+Protocol mix: ARP=1215, UDP=16, DNS=4, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.1 (gateway)=6, 192.168.100.51 (internal_host)=4
+Top dest IPs: 239.255.255.250=9, 192.168.100.50 (kali_attacker)=3, 192.168.100.255 (internal_host)=2, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1
+ARP: requests=1199, replies=16, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.51 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a'])"
+56,malicious,port_scan_recon,01_recon_and_scan.pcap,2,"Time window #2: duration=9.4s, total_packets=534
+Protocol mix: ARP=526, UDP=8, DNS=6
+Top source IPs: 192.168.100.50 (kali_attacker)=4, 192.168.100.1 (gateway)=3, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=4, 192.168.100.1 (gateway)=3, 62.106.94.7=1
+ARP: requests=515, replies=11, distinct_announced_IPs=3
+DNS queries: count=3, examples=['51.100.168.192.in-addr.arpa', '1.100.168.192.in-addr.arpa', '50.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+57,malicious,arp_spoof,03_arp_spoof.pcap,19,"Time window #19: duration=10.0s, total_packets=907
+Protocol mix: ARP=862, ICMP=32, UDP=12, DNS=5
+Top source IPs: 192.168.100.50 (kali_attacker)=20, 192.168.100.51 (internal_host)=12, 192.168.100.1 (gateway)=12
+Top dest IPs: 192.168.100.1 (gateway)=17, 192.168.100.51 (internal_host)=17, 239.255.255.250=4, 192.168.100.50 (kali_attacker)=4, 224.0.0.251=1
+ARP: requests=841, replies=21, distinct_announced_IPs=3
+DNS queries: count=3, examples=['_services._dns-sd._udp.local', '1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+58,malicious,dns_spoof,04_dns_spoofing.pcap,5,"Time window #5: duration=9.5s, total_packets=29
+Protocol mix: ARP=24, UDP=5, DNS=5
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2, 192.168.100.150 (internal_host)=1
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2, 224.0.0.251=1
+ARP: requests=2, replies=22, distinct_announced_IPs=3
+DNS queries: count=3, examples=['1.100.168.192.in-addr.arpa', '_nfs._tcp.local']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=22)"
+59,malicious,dns_spoof,04_dns_spoofing.pcap,12,"Time window #12: duration=9.5s, total_packets=26
+Protocol mix: ARP=20, UDP=6, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+ARP: requests=0, replies=20, distinct_announced_IPs=2
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+60,normal,,02_normal.pcap,12,"Time window #12: duration=10.0s, total_packets=1318
+Protocol mix: UDP=810, TCP=508
+Top source IPs: 192.168.100.51 (internal_host)=497, 142.251.155.119=339, 142.251.157.119=92, 104.18.2.152=83, 192.178.24.8=49
+Top dest IPs: 192.168.100.51 (internal_host)=821, 142.251.155.119=106, 104.18.2.152=80, 192.168.100.1 (gateway)=56, 142.251.157.119=52
+TCP flags: ACK=489, PSH=208, SYN=26, FIN=9, RST=7
+TCP distinct_dst_ports=43, top_ports=[(443, 168), (42462, 72), (53, 56), (80, 32), (45952, 30), (46306, 20), (55996, 15), (60284, 10), (46290, 10), (42468, 10)]
+Behavioral indicators: none"
+61,malicious,dhcp_poison,05_dhcp_poisoning.pcap,5,"Time window #5: duration=2.7s, total_packets=6
+Protocol mix: ARP=6
+ARP: requests=3, replies=3, distinct_announced_IPs=3
+Behavioral indicators: none"
+62,malicious,dhcp_poison,05_dhcp_poisoning.pcap,1,"Time window #1: duration=7.7s, total_packets=10
+Protocol mix: TCP=7, UDP=3, DHCP=1
+Top source IPs: 192.168.100.51 (internal_host)=8, 192.168.100.50 (kali_attacker)=1, 62.106.94.7=1
+Top dest IPs: 192.168.100.1 (gateway)=8, 62.106.94.7=1, 192.168.100.50 (kali_attacker)=1
+TCP flags: SYN=7
+TCP distinct_dst_ports=1, top_ports=[(53, 7)]
+DHCP types: REQUEST=1
+Behavioral indicators: none"
+63,normal,,02_normal.pcap,5,"Time window #5: duration=9.6s, total_packets=3627
+Protocol mix: UDP=2995, TCP=631, ICMP=1
+Top source IPs: 212.154.111.12=1463, 192.168.100.51 (internal_host)=824, 172.217.23.150=546, 142.251.208.110=318, 172.217.18.161=169
+Top dest IPs: 192.168.100.51 (internal_host)=2800, 212.154.111.12=213, 142.251.208.110=167, 172.217.18.161=106, 172.217.23.150=78
+TCP flags: ACK=611, PSH=278, SYN=26, FIN=14, RST=7
+TCP distinct_dst_ports=25, top_ports=[(443, 238), (34070, 86), (53, 53), (59058, 34), (80, 32), (40262, 29), (33042, 23), (58930, 17), (39466, 15), (40844, 14)]
+Behavioral indicators: none"
+64,malicious,dns_spoof,04_dns_spoofing.pcap,13,"Time window #13: duration=9.5s, total_packets=28
+Protocol mix: ARP=24, UDP=4, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2
+ARP: requests=2, replies=22, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=22)"
+65,malicious,arp_spoof,03_arp_spoof.pcap,21,"Time window #21: duration=9.5s, total_packets=1018
+Protocol mix: ARP=1000, ICMP=10, UDP=8, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.51 (internal_host)=5, 8.8.8.8=4, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.51 (internal_host)=6, 8.8.8.8=4, 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 239.255.255.250=2
+ARP: requests=979, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+66,malicious,dhcp_poison,05_dhcp_poisoning.pcap,19,"Time window #19: duration=9.5s, total_packets=26
+Protocol mix: UDP=17, DNS=11, DHCP=6, ARP=5
+Top source IPs: 192.168.100.200 (internal_host)=11, 0.0.0.0=4, 192.168.100.150 (internal_host)=3, 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=1
+Top dest IPs: 224.0.0.251=11, 224.0.0.22=4, 255.255.255.255=2, 192.168.100.200 (internal_host)=2, 192.168.100.1 (gateway)=1
+ARP: requests=2, replies=3, distinct_announced_IPs=3
+DNS queries: count=7, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: OFFER=2, RELEASE=1, DISCOVER=1, REQUEST=1, ACK=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+67,malicious,dns_spoof,04_dns_spoofing.pcap,10,"Time window #10: duration=9.5s, total_packets=26
+Protocol mix: ARP=22, UDP=4, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+68,normal,,02_normal.pcap,9,"Time window #9: duration=10.0s, total_packets=1501
+Protocol mix: TCP=792, UDP=709
+Top source IPs: 192.168.100.51 (internal_host)=580, 142.251.155.119=373, 192.0.33.8=255, 172.217.16.138=50, 142.251.142.110=36
+Top dest IPs: 192.168.100.51 (internal_host)=921, 192.0.33.8=236, 142.251.155.119=85, 192.168.100.1 (gateway)=50, 172.217.16.138=34
+TCP flags: ACK=782, PSH=373, SYN=20, FIN=18
+TCP distinct_dst_ports=44, top_ports=[(443, 308), (58816, 225), (53, 50), (80, 42), (45952, 25), (41150, 9), (52936, 9), (34228, 9), (49184, 9), (58760, 8)]
+Behavioral indicators: none"
+69,malicious,dns_spoof,04_dns_spoofing.pcap,19,"Time window #19: duration=9.6s, total_packets=1185
+Protocol mix: TCP=746, UDP=403, DNS=388, ARP=20, ICMP=16
+Top source IPs: 192.168.100.150 (internal_host)=520, 192.168.100.1 (gateway)=200, 192.168.100.50 (kali_attacker)=124, 34.107.221.82=108, 34.120.208.123=61
+Top dest IPs: 192.168.100.150 (internal_host)=425, 192.168.100.1 (gateway)=204, 192.168.100.50 (kali_attacker)=134, 34.107.221.82=114, 34.120.208.123=97
+TCP flags: ACK=666, PSH=261, SYN=104, FIN=59, RST=56
+TCP distinct_dst_ports=51, top_ports=[(443, 300), (80, 116), (58122, 50), (58106, 46), (58622, 8), (58582, 8), (42412, 8), (54034, 7), (39296, 7), (58562, 7)]
+ARP: requests=0, replies=20, distinct_announced_IPs=2
+DNS queries: count=182, examples=['1.100.168.192.in-addr.arpa', 'content-signature-2.cdn.mozilla.net', 'detectportal.firefox.com', 'ads.mozilla.org', 'example.org', 'cloudflare-dns.com', 'ipv4only.arpa', 'firefox.settings.services.mozilla.com']
+Behavioral indicators: port_scan_signature (distinct_dst_ports=51, SYN=104, RST=56); high_arp_reply_rate (count=20)"
+70,malicious,dhcp_poison,05_dhcp_poisoning.pcap,13,"Time window #13: duration=9.3s, total_packets=38
+Protocol mix: UDP=8, ARP=5, DNS=1, ICMP=1
+Top source IPs: 192.168.100.1 (gateway)=14, 192.168.100.200 (internal_host)=3, 192.168.100.50 (kali_attacker)=1, 185.125.190.56=1
+Top dest IPs: 224.0.0.22=10, 224.0.0.252=4, 185.125.190.56=2, 192.168.100.200 (internal_host)=2, 224.0.0.251=1
+ARP: requests=2, replies=3, distinct_announced_IPs=3
+DNS queries: count=1, examples=['_ipps._tcp.local']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+71,normal,,02_normal.pcap,37,"Time window #37: duration=9.6s, total_packets=605
+Protocol mix: TCP=603, UDP=2
+Top source IPs: 192.168.100.51 (internal_host)=303, 192.168.100.1 (gateway)=284, 104.18.38.233=9, 192.178.24.35=3, 151.101.193.91=2
+Top dest IPs: 192.168.100.51 (internal_host)=300, 192.168.100.1 (gateway)=287, 104.18.38.233=9, 192.178.24.35=3, 151.101.193.91=2
+TCP flags: ACK=603, PSH=572, FIN=6
+TCP distinct_dst_ports=12, top_ports=[(22, 287), (45786, 284), (80, 12), (443, 4), (51856, 3), (51842, 3), (51868, 3), (56474, 2), (59826, 2), (45562, 1)]
+Behavioral indicators: none"
+72,normal,,02_normal.pcap,39,"Time window #39: duration=7.8s, total_packets=283
+Protocol mix: TCP=283
+Top source IPs: 192.168.100.51 (internal_host)=142, 192.168.100.1 (gateway)=124, 192.178.24.35=15, 172.217.23.131=2
+Top dest IPs: 192.168.100.51 (internal_host)=141, 192.168.100.1 (gateway)=125, 192.178.24.35=15, 172.217.23.131=2
+TCP flags: ACK=283, PSH=253, FIN=10
+TCP distinct_dst_ports=10, top_ports=[(22, 125), (45786, 124), (80, 15), (44942, 3), (45556, 3), (45562, 3), (42368, 3), (45554, 3), (443, 2), (46878, 2)]
+Behavioral indicators: none"
+73,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,2,"Time window #2: duration=9.8s, total_packets=267
+Protocol mix: ARP=264, UDP=3
+Top source IPs: 192.168.100.1 (gateway)=3
+Top dest IPs: 239.255.255.250=3
+ARP: requests=257, replies=7, distinct_announced_IPs=4
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+74,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,13,"Time window #13: duration=9.6s, total_packets=56
+Protocol mix: UDP=46, ICMP=8, ARP=2, DNS=2
+Top source IPs: 192.168.100.50 (kali_attacker)=45, 192.168.100.150 (internal_host)=8, 192.168.100.1 (gateway)=1
+Top dest IPs: 192.168.100.150 (internal_host)=44, 192.168.100.50 (kali_attacker)=9, 192.168.100.1 (gateway)=1
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=1, examples=['150.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+75,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,1,"Time window #1: duration=9.5s, total_packets=518
+Protocol mix: ARP=513, UDP=5, DHCP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=2, 62.106.94.7=1, 192.168.100.1 (gateway)=1, 239.255.255.250=1
+ARP: requests=509, replies=4, distinct_announced_IPs=4
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+76,malicious,dns_spoof,04_dns_spoofing.pcap,22,"Time window #22: duration=9.6s, total_packets=26
+Protocol mix: ARP=22, UDP=4, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+77,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,15,"Time window #15: duration=7.8s, total_packets=82
+Protocol mix: UDP=72, ARP=6, DNS=4, ICMP=4, DHCP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=68, 192.168.100.150 (internal_host)=4, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1, 62.106.94.7=1
+Top dest IPs: 192.168.100.150 (internal_host)=67, 192.168.100.50 (kali_attacker)=5, 192.168.100.1 (gateway)=1, 192.168.100.51 (internal_host)=1, 224.0.0.251=1
+ARP: requests=3, replies=3, distinct_announced_IPs=3
+DNS queries: count=3, examples=['_services._dns-sd._udp.local', '_apple-mobdev._tcp.local']
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: none"
+78,malicious,dns_spoof,04_dns_spoofing.pcap,15,"Time window #15: duration=9.8s, total_packets=35
+Protocol mix: ARP=20, UDP=12, DNS=12, ICMP=3
+Top source IPs: 192.168.100.1 (gateway)=6, 192.168.100.150 (internal_host)=6, 192.168.100.50 (kali_attacker)=3
+Top dest IPs: 192.168.100.1 (gateway)=9, 192.168.100.150 (internal_host)=4, 192.168.100.50 (kali_attacker)=2
+ARP: requests=0, replies=20, distinct_announced_IPs=2
+DNS queries: count=4, examples=['1.100.168.192.in-addr.arpa', 'ayazaga.com']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+79,malicious,dhcp_poison,05_dhcp_poisoning.pcap,3,"Time window #3: duration=3.0s, total_packets=142408
+Protocol mix: UDP=142400, DHCP=142396, TCP=8, DNS=4
+Top source IPs: 0.0.0.0=142396, 192.168.100.51 (internal_host)=6, 185.125.190.101=4, 192.168.100.1 (gateway)=2
+Top dest IPs: 255.255.255.255=142396, 192.168.100.51 (internal_host)=6, 185.125.190.101=4, 192.168.100.1 (gateway)=2
+TCP flags: ACK=7, SYN=2, PSH=2, FIN=2
+TCP distinct_dst_ports=2, top_ports=[(80, 4), (37682, 4)]
+DNS queries: count=2, examples=['connectivity-check.ubuntu.com']
+DHCP types: DISCOVER=142396
+Behavioral indicators: high_dhcp_discover_rate (count=142396)"
+80,malicious,dhcp_poison,05_dhcp_poisoning.pcap,7,"Time window #7: duration=6.5s, total_packets=8
+Protocol mix: UDP=7, DNS=7
+Top source IPs: 192.168.100.200 (internal_host)=8
+Top dest IPs: 224.0.0.251=7, 224.0.0.22=1
+DNS queries: count=4, examples=['d.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa', '_ipps._tcp.local']
+Behavioral indicators: none"
+81,normal,,02_normal.pcap,21,"Time window #21: duration=9.8s, total_packets=305
+Protocol mix: TCP=283, ICMP=20, UDP=2
+Top source IPs: 192.168.100.51 (internal_host)=151, 80.251.45.14=24, 192.168.100.1 (gateway)=17, 34.120.208.123=14, 151.101.1.91=12
+Top dest IPs: 192.168.100.51 (internal_host)=154, 80.251.45.14=24, 192.168.100.1 (gateway)=18, 34.120.208.123=12, 151.101.1.91=12
+TCP flags: ACK=277, PSH=81, FIN=40, RST=5, SYN=2
+TCP distinct_dst_ports=64, top_ports=[(443, 93), (80, 39), (57644, 14), (53, 8), (46996, 7), (54258, 5), (47324, 4), (43886, 4), (43870, 4), (43882, 4)]
+Behavioral indicators: none"
+82,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,8,"Time window #8: duration=10.0s, total_packets=107
+Protocol mix: UDP=95, DNS=17, ICMP=12
+Top source IPs: 192.168.100.50 (kali_attacker)=95, 192.168.100.150 (internal_host)=12
+Top dest IPs: 192.168.100.150 (internal_host)=92, 192.168.100.50 (kali_attacker)=12, 192.168.100.1 (gateway)=2, 62.12.173.11=1
+DNS queries: count=12, examples=['150.100.168.192.in-addr.arpa', 'version.bind', '_services._dns-sd._udp.local']
+Behavioral indicators: none"
+83,malicious,dhcp_poison,05_dhcp_poisoning.pcap,10,"Time window #10: duration=8.6s, total_packets=5
+Protocol mix: UDP=3, ARP=2, DNS=1
+Top source IPs: 192.168.100.200 (internal_host)=1, 192.168.100.50 (kali_attacker)=1, 62.106.94.7=1
+Top dest IPs: 224.0.0.251=1, 62.106.94.7=1, 192.168.100.50 (kali_attacker)=1
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=1, examples=['_ipps._tcp.local']
+Behavioral indicators: none"
+84,malicious,dns_spoof,04_dns_spoofing.pcap,23,"Time window #23: duration=7.2s, total_packets=22
+Protocol mix: ARP=16, UDP=6, DNS=4, DHCP=2
+Top source IPs: 192.168.100.1 (gateway)=3, 192.168.100.50 (kali_attacker)=2, 0.0.0.0=1
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2, 255.255.255.255=1, 192.168.100.51 (internal_host)=1
+ARP: requests=1, replies=15, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); arp_conflict (IP 192.168.100.150 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a'])"
+85,normal,,02_normal.pcap,45,"Time window #45: duration=7.6s, total_packets=141
+Protocol mix: TCP=141
+Top source IPs: 192.168.100.51 (internal_host)=71, 192.168.100.1 (gateway)=70
+Top dest IPs: 192.168.100.1 (gateway)=71, 192.168.100.51 (internal_host)=70
+TCP flags: ACK=141, PSH=128
+TCP distinct_dst_ports=2, top_ports=[(22, 71), (45786, 70)]
+Behavioral indicators: none"
+86,normal,,02_normal.pcap,19,"Time window #19: duration=9.6s, total_packets=5282
+Protocol mix: TCP=3184, UDP=2098
+Top source IPs: 192.168.100.51 (internal_host)=2032, 142.251.142.98=491, 104.18.21.206=378, 172.217.23.130=212, 192.178.24.8=186
+Top dest IPs: 192.168.100.51 (internal_host)=3248, 192.168.100.1 (gateway)=266, 142.251.142.98=103, 34.160.152.31=90, 192.178.24.8=69
+TCP flags: ACK=3033, PSH=1394, SYN=197, FIN=133, RST=54
+TCP distinct_dst_ports=174, top_ports=[(443, 1190), (53, 266), (80, 137), (57630, 78), (56902, 68), (42956, 43), (51306, 36), (48196, 34), (55660, 33), (40812, 32)]
+Behavioral indicators: port_scan_signature (distinct_dst_ports=174, SYN=197, RST=54)"
+87,malicious,arp_spoof,03_arp_spoof.pcap,1,"Time window #1: duration=10.0s, total_packets=107
+Protocol mix: ARP=89, UDP=12, DNS=7, DHCP=2, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=9, 192.168.100.1 (gateway)=4, 192.168.100.51 (internal_host)=2
+Top dest IPs: 192.168.100.1 (gateway)=4, 192.168.100.50 (kali_attacker)=4, 192.168.100.51 (internal_host)=2, 239.255.255.250=2, 224.0.0.22=2
+ARP: requests=85, replies=4, distinct_announced_IPs=3
+DNS queries: count=4, examples=['1.100.168.192.in-addr.arpa', '51.100.168.192.in-addr.arpa', '_services._dns-sd._udp.local']
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: none"
+88,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,6,"Time window #6: duration=5.8s, total_packets=1022
+Protocol mix: TCP=1013, ARP=6, UDP=3, DNS=3
+Top source IPs: 192.168.100.50 (kali_attacker)=509, 192.168.100.150 (internal_host)=504, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=1
+Top dest IPs: 192.168.100.150 (internal_host)=506, 192.168.100.50 (kali_attacker)=504, 192.168.100.1 (gateway)=5, 192.168.100.51 (internal_host)=1
+TCP flags: ACK=511, SYN=503, RST=500, FIN=4, PSH=1
+TCP distinct_dst_ports=503, top_ports=[(54164, 500), (22, 7), (37366, 4), (53, 3), (110, 1), (135, 1), (443, 1), (23, 1), (80, 1), (25, 1)]
+ARP: requests=3, replies=3, distinct_announced_IPs=4
+DNS queries: count=3, examples=['150.100.168.192.in-addr.arpa']
+Behavioral indicators: port_scan_signature (distinct_dst_ports=503, SYN=503, RST=500)"
+89,malicious,arp_spoof,03_arp_spoof.pcap,18,"Time window #18: duration=9.1s, total_packets=830
+Protocol mix: ARP=817, UDP=12, DNS=4, ICMP=1
+Top source IPs: 192.168.100.1 (gateway)=6, 192.168.100.50 (kali_attacker)=6, 192.168.100.51 (internal_host)=1
+Top dest IPs: 239.255.255.250=6, 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1, 192.168.100.255 (internal_host)=1
+ARP: requests=796, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.51 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+90,malicious,arp_spoof,03_arp_spoof.pcap,4,"Time window #4: duration=8.5s, total_packets=767
+Protocol mix: ARP=756, UDP=9, DNS=5, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=3, 239.255.255.250=2, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1, 224.0.0.251=1
+ARP: requests=756, replies=0, distinct_announced_IPs=1
+DNS queries: count=3, examples=['1.100.168.192.in-addr.arpa', '_services._dns-sd._udp.local']
+Behavioral indicators: none"
+91,normal,,02_normal.pcap,11,"Time window #11: duration=9.4s, total_packets=76
+Protocol mix: TCP=74, UDP=2, DHCP=2
+Top source IPs: 192.168.100.51 (internal_host)=45, 192.168.100.1 (gateway)=7, 192.178.24.35=6, 23.11.40.157=6, 80.251.45.14=6
+Top dest IPs: 192.168.100.51 (internal_host)=31, 80.251.45.14=12, 192.168.100.1 (gateway)=11, 192.178.24.35=8, 23.11.40.157=8
+TCP flags: ACK=74, PSH=10
+TCP distinct_dst_ports=28, top_ports=[(80, 21), (443, 13), (53, 10), (45952, 6), (42368, 1), (45556, 1), (47512, 1), (47496, 1), (45540, 1), (35568, 1)]
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: none"
+92,malicious,dhcp_poison,05_dhcp_poisoning.pcap,14,"Time window #14: duration=9.5s, total_packets=7
+Protocol mix: ARP=4, UDP=3, DNS=1
+Top source IPs: 192.168.100.50 (kali_attacker)=1, 62.106.94.7=1, 192.168.100.200 (internal_host)=1
+Top dest IPs: 62.106.94.7=1, 192.168.100.50 (kali_attacker)=1, 224.0.0.251=1
+ARP: requests=2, replies=2, distinct_announced_IPs=3
+DNS queries: count=1, examples=['_ipps._tcp.local']
+Behavioral indicators: none"
+93,normal,,02_normal.pcap,30,"Time window #30: duration=9.9s, total_packets=270
+Protocol mix: TCP=201, UDP=43
+Top source IPs: 192.168.100.51 (internal_host)=117, 172.217.171.78=18, 192.168.100.1 (gateway)=15, 169.150.215.115=6, 192.178.24.35=5
+Top dest IPs: 192.168.100.51 (internal_host)=123, 172.217.171.78=15, 224.0.0.22=11, 169.150.215.115=5, 192.178.24.35=5
+TCP flags: ACK=201, PSH=72, FIN=12
+TCP distinct_dst_ports=57, top_ports=[(443, 79), (80, 21), (36364, 6), (42766, 4), (60114, 4), (42462, 4), (59772, 4), (34722, 4), (51348, 3), (54764, 2)]
+Behavioral indicators: none"
+94,malicious,dns_spoof,04_dns_spoofing.pcap,4,"Time window #4: duration=9.4s, total_packets=16
+Protocol mix: UDP=8, ARP=8, DNS=6, DHCP=2
+Top source IPs: 192.168.100.1 (gateway)=4, 192.168.100.50 (kali_attacker)=3, 192.168.100.150 (internal_host)=1
+Top dest IPs: 192.168.100.1 (gateway)=4, 192.168.100.50 (kali_attacker)=3, 192.168.100.150 (internal_host)=1
+ARP: requests=0, replies=8, distinct_announced_IPs=2
+DNS queries: count=3, examples=['1.100.168.192.in-addr.arpa', '150.100.168.192.in-addr.arpa']
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: none"
+95,malicious,dns_spoof,04_dns_spoofing.pcap,18,"Time window #18: duration=9.6s, total_packets=35
+Protocol mix: ARP=24, UDP=10, DNS=8, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=4, 192.168.100.1 (gateway)=4, 192.168.100.150 (internal_host)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.1 (gateway)=5, 192.168.100.50 (kali_attacker)=3, 192.168.100.150 (internal_host)=2, 62.106.94.7=1
+ARP: requests=2, replies=22, distinct_announced_IPs=3
+DNS queries: count=4, examples=['1.100.168.192.in-addr.arpa', 'connectivity-check.ubuntu.com']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=22)"
+96,malicious,dns_spoof,04_dns_spoofing.pcap,16,"Time window #16: duration=9.6s, total_packets=26
+Protocol mix: ARP=22, UDP=4, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+97,normal,,02_normal.pcap,32,"Time window #32: duration=9.8s, total_packets=88
+Protocol mix: UDP=51, TCP=33, ARP=4
+Top source IPs: 192.168.100.51 (internal_host)=40, 172.217.171.78=24, 192.178.24.35=5, 104.236.86.11=5, 192.178.24.17=4
+Top dest IPs: 192.168.100.51 (internal_host)=44, 172.217.171.78=19, 192.178.24.35=5, 104.236.86.11=5, 192.178.24.17=4
+TCP flags: ACK=33, FIN=2, PSH=2
+TCP distinct_dst_ports=18, top_ports=[(80, 8), (443, 7), (53, 2), (57644, 2), (45562, 1), (42368, 1), (45554, 1), (51856, 1), (51842, 1), (51868, 1)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: none"
+98,malicious,arp_spoof,03_arp_spoof.pcap,20,"Time window #20: duration=10.0s, total_packets=1246
+Protocol mix: ARP=1228, UDP=11, ICMP=7, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=10, 192.168.100.1 (gateway)=4, 192.168.100.51 (internal_host)=3, 62.106.94.7=1
+Top dest IPs: 192.168.100.1 (gateway)=5, 192.168.100.51 (internal_host)=4, 192.168.100.50 (kali_attacker)=4, 192.168.100.255 (internal_host)=2, 239.255.255.250=2
+ARP: requests=1207, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.51 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+99,malicious,dns_spoof,04_dns_spoofing.pcap,21,"Time window #21: duration=9.6s, total_packets=109
+Protocol mix: TCP=65, UDP=24, DNS=20, ARP=20
+Top source IPs: 192.168.100.150 (internal_host)=43, 34.107.221.82=16, 192.168.100.1 (gateway)=14, 34.120.208.123=10, 34.107.243.93=4
+Top dest IPs: 192.168.100.150 (internal_host)=38, 34.107.221.82=16, 34.120.208.123=12, 192.168.100.1 (gateway)=10, 34.107.243.93=7
+TCP flags: ACK=61, PSH=23, FIN=11, SYN=6, RST=4
+TCP distinct_dst_ports=7, top_ports=[(443, 19), (80, 16), (33292, 8), (33296, 8), (49732, 5), (49738, 5), (47402, 4)]
+ARP: requests=0, replies=20, distinct_announced_IPs=2
+DNS queries: count=10, examples=['push.services.mozilla.com', 'ipv4only.arpa', 'telemetry-incoming.r53-2.services.mozilla.com', '1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+100,normal,,02_normal.pcap,10,"Time window #10: duration=9.8s, total_packets=1297
+Protocol mix: UDP=1011, TCP=284, ARP=2
+Top source IPs: 104.18.95.41=502, 192.178.25.227=317, 192.168.100.51 (internal_host)=306, 80.251.45.14=83, 142.251.151.119=19
+Top dest IPs: 192.168.100.51 (internal_host)=987, 104.18.95.41=116, 80.251.45.14=67, 192.178.25.227=37, 192.168.100.1 (gateway)=18
+TCP flags: ACK=275, PSH=115, SYN=14, FIN=3, RST=2
+TCP distinct_dst_ports=38, top_ports=[(443, 103), (43858, 21), (80, 19), (53, 18), (43886, 14), (43880, 13), (43892, 11), (43882, 10), (43870, 10), (45952, 9)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+Behavioral indicators: none"
+101,normal,,02_normal.pcap,47,"Time window #47: duration=10.0s, total_packets=689
+Protocol mix: TCP=689
+Top source IPs: 192.168.100.51 (internal_host)=347, 192.168.100.1 (gateway)=338, 151.101.193.91=4
+Top dest IPs: 192.168.100.1 (gateway)=343, 192.168.100.51 (internal_host)=342, 151.101.193.91=4
+TCP flags: ACK=688, PSH=675, FIN=2, RST=1
+TCP distinct_dst_ports=4, top_ports=[(22, 343), (45786, 338), (443, 4), (56474, 4)]
+Behavioral indicators: none"
+102,normal,,02_normal.pcap,38,"Time window #38: duration=10.0s, total_packets=555
+Protocol mix: TCP=551, ARP=4
+Top source IPs: 192.168.100.51 (internal_host)=277, 192.168.100.1 (gateway)=265, 192.178.24.35=5, 34.120.208.123=4
+Top dest IPs: 192.168.100.51 (internal_host)=274, 192.168.100.1 (gateway)=268, 192.178.24.35=5, 34.120.208.123=4
+TCP flags: ACK=551, PSH=531, FIN=2
+TCP distinct_dst_ports=10, top_ports=[(22, 268), (45786, 265), (80, 5), (443, 4), (57644, 4), (44942, 1), (45556, 1), (45562, 1), (42368, 1), (45554, 1)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: none"
+103,normal,,02_normal.pcap,18,"Time window #18: duration=10.0s, total_packets=4141
+Protocol mix: TCP=3692, UDP=449
+Top source IPs: 192.168.100.51 (internal_host)=1985, 104.21.89.22=114, 192.168.100.1 (gateway)=111, 192.178.25.225=99, 172.217.18.161=94
+Top dest IPs: 192.168.100.51 (internal_host)=2156, 192.168.100.1 (gateway)=197, 192.178.25.225=99, 172.217.18.161=92, 185.89.210.20=67
+TCP flags: ACK=3501, PSH=1499, SYN=303, FIN=233, RST=78
+TCP distinct_dst_ports=209, top_ports=[(443, 1461), (80, 203), (53, 197), (57624, 66), (57630, 31), (45562, 26), (55972, 24), (34566, 23), (41136, 23), (38866, 22)]
+Behavioral indicators: port_scan_signature (distinct_dst_ports=209, SYN=303, RST=78)"
+104,normal,,02_normal.pcap,40,"Time window #40: duration=9.9s, total_packets=971
+Protocol mix: UDP=631, TCP=338, ARP=2
+Top source IPs: 104.18.95.41=496, 192.168.100.51 (internal_host)=303, 192.168.100.1 (gateway)=163, 162.159.207.0=5, 192.168.100.50 (kali_attacker)=1
+Top dest IPs: 192.168.100.51 (internal_host)=663, 192.168.100.1 (gateway)=176, 104.18.95.41=122, 162.159.207.0=5, 62.106.94.7=1
+TCP flags: ACK=337, PSH=314, SYN=2
+TCP distinct_dst_ports=4, top_ports=[(22, 168), (45786, 155), (53, 8), (41166, 7)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+Behavioral indicators: none"
+105,malicious,dhcp_poison,05_dhcp_poisoning.pcap,24,"Time window #24: duration=9.1s, total_packets=25
+Protocol mix: UDP=18, DNS=10, DHCP=6, ARP=3
+Top source IPs: 192.168.100.200 (internal_host)=11, 0.0.0.0=4, 192.168.100.50 (kali_attacker)=3, 192.168.100.150 (internal_host)=2, 192.168.100.1 (gateway)=1
+Top dest IPs: 224.0.0.251=10, 224.0.0.22=4, 255.255.255.255=2, 192.168.100.200 (internal_host)=2, 192.168.100.1 (gateway)=1
+ARP: requests=1, replies=2, distinct_announced_IPs=2
+DNS queries: count=6, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: OFFER=2, RELEASE=1, DISCOVER=1, REQUEST=1, ACK=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+106,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,11,"Time window #11: duration=8.0s, total_packets=455
+Protocol mix: TCP=438, UDP=6, ARP=6, ICMP=5, DNS=2
+Top source IPs: 192.168.100.50 (kali_attacker)=231, 192.168.100.150 (internal_host)=214, 192.168.100.1 (gateway)=4
+Top dest IPs: 192.168.100.150 (internal_host)=230, 192.168.100.50 (kali_attacker)=215, 239.255.255.250=3, 192.168.100.1 (gateway)=1
+TCP flags: SYN=220, ACK=211, RST=211, FIN=5, PSH=5
+TCP distinct_dst_ports=212, top_ports=[(58623, 200), (22, 25), (1, 4), (3306, 1), (199, 1), (143, 1), (8888, 1), (139, 1), (135, 1), (111, 1)]
+ARP: requests=3, replies=3, distinct_announced_IPs=4
+DNS queries: count=1, examples=['150.100.168.192.in-addr.arpa']
+Behavioral indicators: port_scan_signature (distinct_dst_ports=212, SYN=220, RST=211)"
+107,normal,,02_normal.pcap,35,"Time window #35: duration=9.6s, total_packets=256
+Protocol mix: TCP=256
+Top source IPs: 192.168.100.51 (internal_host)=128, 192.178.24.35=5, 172.217.18.166=4, 172.66.171.133=4, 34.36.200.111=4
+Top dest IPs: 192.168.100.51 (internal_host)=128, 192.178.24.35=5, 172.217.18.166=4, 172.66.171.133=4, 34.36.200.111=4
+TCP flags: ACK=253, PSH=92, FIN=58, RST=3
+TCP distinct_dst_ports=41, top_ports=[(443, 116), (80, 8), (51682, 4), (57354, 4), (59028, 4), (48200, 4), (41382, 4), (54004, 4), (47998, 4), (36712, 4)]
+Behavioral indicators: none"
+108,malicious,arp_spoof,03_arp_spoof.pcap,14,"Time window #14: duration=9.1s, total_packets=947
+Protocol mix: ARP=912, TCP=20, UDP=10, ICMP=5, DNS=4
+Top source IPs: 192.168.100.51 (internal_host)=13, 192.168.100.50 (kali_attacker)=11, 192.168.100.1 (gateway)=10, 62.106.94.7=1
+Top dest IPs: 192.168.100.1 (gateway)=16, 192.168.100.51 (internal_host)=11, 192.168.100.50 (kali_attacker)=4, 239.255.255.250=2, 192.168.100.255 (internal_host)=1
+TCP flags: ACK=18, PSH=8, SYN=4
+TCP distinct_dst_ports=2, top_ports=[(53, 12), (56318, 8)]
+ARP: requests=892, replies=20, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+109,malicious,dhcp_poison,05_dhcp_poisoning.pcap,2,"Time window #2: duration=10.0s, total_packets=336257
+Protocol mix: UDP=335951, DHCP=335943, ARP=305, DNS=6
+Top source IPs: 0.0.0.0=335844, 192.168.100.1 (gateway)=101, 192.168.100.51 (internal_host)=5, 185.125.190.56=1
+Top dest IPs: 255.255.255.255=335943, 192.168.100.1 (gateway)=4, 192.168.100.51 (internal_host)=3, 185.125.190.56=1
+ARP: requests=301, replies=4, distinct_announced_IPs=3
+DNS queries: count=4, examples=['ntp.ubuntu.com']
+DHCP types: DISCOVER=335844, OFFER=99
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: high_dhcp_discover_rate (count=335844)"
+110,malicious,dhcp_poison,05_dhcp_poisoning.pcap,20,"Time window #20: duration=8.9s, total_packets=54
+Protocol mix: UDP=23, DNS=23, ICMP=12, TCP=12, ARP=7
+Top source IPs: 192.168.100.200 (internal_host)=29, 192.168.100.50 (kali_attacker)=18
+Top dest IPs: 192.168.100.50 (kali_attacker)=20, 192.168.100.200 (internal_host)=18, 224.0.0.251=9
+TCP flags: SYN=6, ACK=6, RST=6
+TCP distinct_dst_ports=7, top_ports=[(53, 6), (39166, 1), (39178, 1), (39180, 1), (39192, 1), (39198, 1), (39214, 1)]
+ARP: requests=5, replies=2, distinct_announced_IPs=3
+DNS queries: count=18, examples=['_ipps._tcp.local', 'connectivity-check.ubuntu.com', '51.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+111,malicious,dns_spoof,04_dns_spoofing.pcap,7,"Time window #7: duration=9.5s, total_packets=24
+Protocol mix: ARP=20, UDP=4, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2
+ARP: requests=0, replies=20, distinct_announced_IPs=2
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+112,malicious,arp_spoof,03_arp_spoof.pcap,7,"Time window #7: duration=9.1s, total_packets=867
+Protocol mix: ARP=853, UDP=10, DNS=5, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 239.255.255.250=3, 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 224.0.0.251=1, 192.168.100.51 (internal_host)=1
+ARP: requests=833, replies=20, distinct_announced_IPs=3
+DNS queries: count=3, examples=['_services._dns-sd._udp.local', '1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+113,normal,,02_normal.pcap,44,"Time window #44: duration=10.0s, total_packets=129
+Protocol mix: TCP=125, ARP=4
+Top source IPs: 192.168.100.51 (internal_host)=64, 192.168.100.1 (gateway)=57, 172.217.23.131=4
+Top dest IPs: 192.168.100.51 (internal_host)=61, 192.168.100.1 (gateway)=60, 172.217.23.131=4
+TCP flags: ACK=125, PSH=114, FIN=4
+TCP distinct_dst_ports=6, top_ports=[(22, 58), (45786, 56), (443, 4), (46878, 4), (53, 2), (47262, 1)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: none"
+114,malicious,dns_spoof,04_dns_spoofing.pcap,20,"Time window #20: duration=9.6s, total_packets=336
+Protocol mix: TCP=170, UDP=138, DNS=134, ARP=20, ICMP=8
+Top source IPs: 192.168.100.150 (internal_host)=147, 192.168.100.1 (gateway)=68, 192.168.100.50 (kali_attacker)=39, 34.107.221.82=24, 34.120.208.123=14
+Top dest IPs: 192.168.100.150 (internal_host)=117, 192.168.100.1 (gateway)=72, 192.168.100.50 (kali_attacker)=45, 34.120.208.123=26, 34.107.221.82=24
+TCP flags: ACK=149, PSH=59, SYN=23, RST=19, FIN=8
+TCP distinct_dst_ports=17, top_ports=[(443, 71), (80, 27), (33292, 12), (33296, 12), (59832, 8), (44502, 7), (58050, 4), (37312, 4), (58288, 4), (58300, 4)]
+ARP: requests=0, replies=20, distinct_announced_IPs=2
+DNS queries: count=58, examples=['push.services.mozilla.com', 'ipv4only.arpa', 'support.mozilla.org', 'mozilla.map.fastly.net', '1.100.168.192.in-addr.arpa', 'ayazaga.com', 'bid4514.ankara.edu.tr', 'dyna.wikimedia.org']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+115,normal,,02_normal.pcap,2,"Time window #2: duration=10.0s, total_packets=14486
+Protocol mix: UDP=12519, TCP=1963, ARP=4
+Top source IPs: 45.84.189.66=8666, 157.240.234.63=2898, 192.168.100.51 (internal_host)=1537, 212.154.111.99=842, 157.240.234.174=344
+Top dest IPs: 192.168.100.51 (internal_host)=12945, 212.154.111.99=715, 45.84.189.66=243, 157.240.234.63=233, 157.240.234.174=157
+TCP flags: ACK=1902, PSH=897, SYN=70, FIN=30, RST=28
+TCP distinct_dst_ports=44, top_ports=[(443, 845), (34180, 411), (34206, 239), (80, 49), (53, 42), (57644, 38), (58884, 30), (34202, 19), (34200, 17), (34192, 16)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: port_scan_signature (distinct_dst_ports=44, SYN=70, RST=28)"
+116,normal,,02_normal.pcap,1,"Time window #1: duration=10.0s, total_packets=694
+Protocol mix: TCP=606, UDP=88
+Top source IPs: 192.168.100.51 (internal_host)=360, 192.168.100.1 (gateway)=91, 151.101.1.91=61, 45.84.189.66=34, 172.217.16.138=24
+Top dest IPs: 192.168.100.51 (internal_host)=332, 192.168.100.1 (gateway)=136, 151.101.1.91=59, 45.84.189.66=29, 172.217.16.138=20
+TCP flags: ACK=576, PSH=285, SYN=46, FIN=15, RST=7
+TCP distinct_dst_ports=26, top_ports=[(443, 161), (53, 136), (58884, 91), (80, 28), (57644, 19), (37668, 16), (37246, 15), (51288, 14), (43254, 12), (42370, 11)]
+Behavioral indicators: none"
+117,normal,,02_normal.pcap,31,"Time window #31: duration=9.8s, total_packets=364
+Protocol mix: TCP=319, UDP=45
+Top source IPs: 192.168.100.51 (internal_host)=175, 172.217.171.78=22, 192.168.100.1 (gateway)=14, 151.101.193.91=13, 18.66.214.38=12
+Top dest IPs: 192.168.100.51 (internal_host)=187, 192.168.100.1 (gateway)=15, 172.217.171.78=14, 18.66.214.38=12, 151.101.193.91=11
+TCP flags: ACK=313, PSH=116, FIN=41, RST=4, SYN=4
+TCP distinct_dst_ports=60, top_ports=[(443, 104), (80, 38), (53, 15), (60918, 14), (56474, 13), (50274, 7), (41234, 7), (37368, 6), (56260, 4), (56234, 4)]
+Behavioral indicators: none"
+118,malicious,arp_spoof,03_arp_spoof.pcap,3,"Time window #3: duration=9.5s, total_packets=995
+Protocol mix: ARP=981, UDP=9, DNS=5, TCP=3, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.51 (internal_host)=3, 192.168.100.1 (gateway)=3
+Top dest IPs: 192.168.100.1 (gateway)=4, 192.168.100.50 (kali_attacker)=3, 192.168.100.51 (internal_host)=2, 239.255.255.250=2, 224.0.0.251=1
+TCP flags: ACK=3, FIN=2
+TCP distinct_dst_ports=2, top_ports=[(53, 2), (57260, 1)]
+ARP: requests=981, replies=0, distinct_announced_IPs=1
+DNS queries: count=3, examples=['1.100.168.192.in-addr.arpa', '_services._dns-sd._udp.local']
+Behavioral indicators: none"
+119,malicious,dhcp_poison,05_dhcp_poisoning.pcap,15,"Time window #15: duration=10.0s, total_packets=17
+Protocol mix: UDP=8, DNS=5, ICMP=5, ARP=2, DHCP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=6, 192.168.100.200 (internal_host)=6, 0.0.0.0=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.200 (internal_host)=5, 224.0.0.22=2, 62.106.94.7=1
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=5, examples=['connectivity-check.ubuntu.com']
+DHCP types: RELEASE=1
+Behavioral indicators: none"
+120,malicious,arp_spoof,03_arp_spoof.pcap,11,"Time window #11: duration=9.1s, total_packets=789
+Protocol mix: ARP=778, UDP=10, DNS=4, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=4, 239.255.255.250=2, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1, 62.106.94.7=1
+ARP: requests=757, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.51 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+121,malicious,dns_spoof,04_dns_spoofing.pcap,9,"Time window #9: duration=9.5s, total_packets=30
+Protocol mix: ARP=22, UDP=8, DNS=4
+Top source IPs: 192.168.100.1 (gateway)=6, 192.168.100.50 (kali_attacker)=2
+Top dest IPs: 239.255.255.250=4, 192.168.100.1 (gateway)=2, 192.168.100.50 (kali_attacker)=2
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+122,normal,,02_normal.pcap,28,"Time window #28: duration=10.0s, total_packets=306
+Protocol mix: TCP=213, UDP=91, DHCP=2, ARP=2
+Top source IPs: 192.168.100.51 (internal_host)=143, 172.217.171.78=95, 192.178.24.35=8, 192.168.100.1 (gateway)=7, 169.150.215.115=7
+Top dest IPs: 192.168.100.51 (internal_host)=156, 172.217.171.78=80, 192.178.24.35=10, 192.168.100.1 (gateway)=9, 169.150.215.115=6
+TCP flags: ACK=208, PSH=73, FIN=9, SYN=6, RST=2
+TCP distinct_dst_ports=43, top_ports=[(443, 68), (80, 30), (34742, 28), (34736, 12), (34746, 12), (53, 8), (36352, 7), (46258, 5), (45562, 2), (42368, 2)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DHCP types: REQUEST=1, ACK=1
+Behavioral indicators: none"
+123,malicious,arp_spoof,03_arp_spoof.pcap,5,"Time window #5: duration=10.0s, total_packets=1014
+Protocol mix: ARP=999, UDP=13, DNS=4, ICMP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=10, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=5, 239.255.255.250=4, 192.168.100.51 (internal_host)=2, 192.168.100.1 (gateway)=2, 192.168.100.255 (internal_host)=1
+ARP: requests=996, replies=3, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: none"
+124,malicious,dhcp_poison,05_dhcp_poisoning.pcap,8,"Time window #8: duration=8.6s, total_packets=17
+Protocol mix: ARP=9, UDP=5, ICMP=1, DNS=1, DHCP=1
+Top source IPs: 192.168.100.200 (internal_host)=4, 0.0.0.0=2, 192.168.100.50 (kali_attacker)=1, 185.125.190.56=1
+Top dest IPs: 185.125.190.56=2, 192.168.100.200 (internal_host)=2, 224.0.0.22=2, 224.0.0.251=1, 192.168.100.50 (kali_attacker)=1
+ARP: requests=4, replies=5, distinct_announced_IPs=3
+DNS queries: count=1, examples=['_ipps._tcp.local']
+DHCP types: RELEASE=1
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:50:56:c0:00:02'])"
+125,normal,,02_normal.pcap,4,"Time window #4: duration=9.8s, total_packets=1444
+Protocol mix: TCP=989, UDP=453, ARP=2
+Top source IPs: 192.168.100.51 (internal_host)=684, 172.217.168.110=178, 151.101.1.91=99, 151.101.65.91=90, 54.192.35.54=79
+Top dest IPs: 192.168.100.51 (internal_host)=755, 172.217.168.110=139, 151.101.1.91=89, 151.101.65.91=80, 54.192.35.54=79
+TCP flags: ACK=967, PSH=467, SYN=34, FIN=28, RST=5
+TCP distinct_dst_ports=36, top_ports=[(443, 400), (33888, 80), (37274, 79), (53, 78), (37668, 65), (59058, 49), (51290, 19), (33312, 18), (39078, 17), (51296, 16)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+Behavioral indicators: none"
+126,malicious,dhcp_poison,05_dhcp_poisoning.pcap,16,"Time window #16: duration=9.7s, total_packets=30
+Protocol mix: UDP=19, DNS=9, DHCP=6, ARP=5, ICMP=1
+Top source IPs: 192.168.100.200 (internal_host)=12, 192.168.100.1 (gateway)=5, 0.0.0.0=4, 192.168.100.50 (kali_attacker)=3
+Top dest IPs: 224.0.0.251=9, 239.255.255.250=4, 224.0.0.22=4, 192.168.100.200 (internal_host)=3, 255.255.255.255=2
+ARP: requests=4, replies=1, distinct_announced_IPs=3
+DNS queries: count=6, examples=['d.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa', '_ipps._tcp.local']
+DHCP types: OFFER=2, DISCOVER=1, REQUEST=1, ACK=1, RELEASE=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: none"
+127,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,9,"Time window #9: duration=9.7s, total_packets=263
+Protocol mix: UDP=252, DNS=21, ICMP=9, ARP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=252, 192.168.100.150 (internal_host)=9
+Top dest IPs: 192.168.100.150 (internal_host)=251, 192.168.100.50 (kali_attacker)=9, 101.44.222.53=1
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=14, examples=['version.bind', '_services._dns-sd._udp.local']
+Behavioral indicators: none"
+128,normal,,02_normal.pcap,16,"Time window #16: duration=9.8s, total_packets=3305
+Protocol mix: UDP=2497, TCP=806, ARP=2
+Top source IPs: 172.66.162.110=1756, 192.168.100.51 (internal_host)=672, 142.251.142.98=288, 213.159.5.171=245, 172.217.18.174=119
+Top dest IPs: 192.168.100.51 (internal_host)=2628, 172.66.162.110=180, 213.159.5.171=132, 172.217.18.174=92, 142.251.142.98=77
+TCP flags: ACK=788, PSH=408, SYN=26, FIN=9, RST=5
+TCP distinct_dst_ports=54, top_ports=[(49258, 245), (443, 153), (444, 132), (80, 34), (53, 31), (35586, 29), (52012, 22), (42092, 16), (36352, 12), (36362, 12)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+Behavioral indicators: none"
+129,malicious,port_scan_recon,00_recon_and_scan_extra.pcap,4,"Time window #4: duration=10.0s, total_packets=2007
+Protocol mix: TCP=2001, UDP=4, DNS=3, ARP=2
+Top source IPs: 192.168.100.50 (kali_attacker)=1005, 192.168.100.150 (internal_host)=1000
+Top dest IPs: 192.168.100.150 (internal_host)=1001, 192.168.100.50 (kali_attacker)=1000, 192.168.100.1 (gateway)=3, 62.106.94.7=1
+TCP flags: SYN=1001, ACK=1000, RST=1000
+TCP distinct_dst_ports=1001, top_ports=[(39870, 1000), (22, 2), (443, 1), (53, 1), (111, 1), (110, 1), (23, 1), (199, 1), (993, 1), (143, 1)]
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=3, examples=['150.100.168.192.in-addr.arpa']
+Behavioral indicators: port_scan_signature (distinct_dst_ports=1001, SYN=1001, RST=1000)"
+130,normal,,02_normal.pcap,26,"Time window #26: duration=10.0s, total_packets=567
+Protocol mix: TCP=487, UDP=56, ICMP=20, ARP=4
+Top source IPs: 192.168.100.51 (internal_host)=274, 104.236.86.11=72, 192.178.24.8=64, 172.217.23.142=47, 208.113.158.104=42
+Top dest IPs: 192.168.100.51 (internal_host)=289, 104.236.86.11=67, 192.178.24.8=56, 208.113.158.104=42, 172.217.23.142=40
+TCP flags: ACK=473, PSH=199, SYN=20, FIN=18, RST=4
+TCP distinct_dst_ports=44, top_ports=[(443, 199), (57858, 42), (53014, 39), (80, 30), (33976, 19), (39238, 18), (53, 13), (33956, 13), (33964, 12), (33984, 11)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: none"
+131,malicious,dhcp_poison,05_dhcp_poisoning.pcap,18,"Time window #18: duration=9.3s, total_packets=25
+Protocol mix: UDP=19, DNS=11, DHCP=6, ARP=2
+Top source IPs: 192.168.100.150 (internal_host)=9, 192.168.100.200 (internal_host)=5, 0.0.0.0=4, 192.168.100.50 (kali_attacker)=2, 192.168.100.1 (gateway)=2
+Top dest IPs: 224.0.0.251=11, 224.0.0.22=4, 192.168.100.50 (kali_attacker)=2, 255.255.255.255=2, 192.168.100.150 (internal_host)=2
+ARP: requests=1, replies=1, distinct_announced_IPs=2
+DNS queries: count=7, examples=['_ipps._tcp.local', 'd.b.f.8.4.1.8.a.1.9.8.6.f.3.f.d.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa']
+DHCP types: OFFER=2, RELEASE=1, DISCOVER=1, REQUEST=1, ACK=1
+DHCP OFFER servers: ['192.168.100.1']
+Behavioral indicators: none"
+132,normal,,02_normal.pcap,6,"Time window #6: duration=8.3s, total_packets=736
+Protocol mix: TCP=614, UDP=122
+Top source IPs: 192.168.100.51 (internal_host)=358, 185.15.58.224=171, 185.15.58.240=83, 142.251.208.110=53, 192.168.100.1 (gateway)=30
+Top dest IPs: 192.168.100.51 (internal_host)=378, 185.15.58.224=159, 185.15.58.240=78, 142.251.208.110=49, 192.168.100.1 (gateway)=37
+TCP flags: ACK=602, PSH=281, SYN=16, FIN=11, RST=6
+TCP distinct_dst_ports=26, top_ports=[(443, 249), (36150, 127), (46272, 83), (53, 37), (45952, 24), (80, 16), (36162, 12), (36154, 12), (39466, 11), (45194, 10)]
+Behavioral indicators: none"
+133,malicious,dns_spoof,04_dns_spoofing.pcap,8,"Time window #8: duration=9.5s, total_packets=28
+Protocol mix: ARP=22, UDP=6, DNS=4
+Top source IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.1 (gateway)=2, 62.106.94.7=1
+ARP: requests=1, replies=21, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=21)"
+134,malicious,arp_spoof,03_arp_spoof.pcap,10,"Time window #10: duration=10.0s, total_packets=1088
+Protocol mix: ARP=1078, UDP=9, DNS=4, ICMP=1
+Top source IPs: 192.168.100.50 (kali_attacker)=7, 192.168.100.1 (gateway)=2, 192.168.100.51 (internal_host)=1
+Top dest IPs: 192.168.100.50 (kali_attacker)=3, 192.168.100.255 (internal_host)=2, 192.168.100.1 (gateway)=2, 239.255.255.250=2, 192.168.100.51 (internal_host)=1
+ARP: requests=1058, replies=20, distinct_announced_IPs=3
+DNS queries: count=2, examples=['1.100.168.192.in-addr.arpa']
+Behavioral indicators: high_arp_reply_rate (count=20)"
+135,normal,,02_normal.pcap,23,"Time window #23: duration=9.5s, total_packets=210
+Protocol mix: TCP=190, ICMP=20
+Top source IPs: 192.168.100.51 (internal_host)=103, 18.212.140.196=8, 169.150.215.115=6, 192.168.100.1 (gateway)=6, 172.66.156.205=6
+Top dest IPs: 192.168.100.51 (internal_host)=107, 18.212.140.196=6, 192.168.100.1 (gateway)=6, 172.66.156.205=6, 104.18.38.233=5
+TCP flags: ACK=189, PSH=59, FIN=10, RST=1
+TCP distinct_dst_ports=61, top_ports=[(443, 61), (80, 32), (36378, 6), (52656, 4), (52646, 4), (33002, 4), (46272, 4), (35604, 2), (42112, 2), (44470, 2)]
+Behavioral indicators: none"
+136,malicious,arp_spoof,03_arp_spoof.pcap,15,"Time window #15: duration=10.0s, total_packets=810
+Protocol mix: ARP=789, UDP=11, TCP=6, DNS=5, ICMP=3
+Top source IPs: 192.168.100.50 (kali_attacker)=11, 192.168.100.51 (internal_host)=5, 192.168.100.1 (gateway)=4
+Top dest IPs: 192.168.100.1 (gateway)=7, 239.255.255.250=4, 192.168.100.51 (internal_host)=4, 192.168.100.50 (kali_attacker)=3, 224.0.0.251=1
+TCP flags: ACK=6, FIN=4
+TCP distinct_dst_ports=2, top_ports=[(53, 4), (56318, 2)]
+ARP: requests=767, replies=22, distinct_announced_IPs=3
+DNS queries: count=3, examples=['_services._dns-sd._udp.local', '1.100.168.192.in-addr.arpa']
+Behavioral indicators: arp_conflict (IP 192.168.100.1 announced by MACs ['00:0c:29:be:56:14', '00:0c:29:84:7f:8a']); arp_conflict (IP 192.168.100.51 announced by MACs ['00:0c:29:7d:7f:9e', '00:0c:29:84:7f:8a']); high_arp_reply_rate (count=22)"
+137,malicious,port_scan_recon,01_recon_and_scan.pcap,3,"Time window #3: duration=9.4s, total_packets=416
+Protocol mix: TCP=408, ARP=6, UDP=2, DNS=2
+Top source IPs: 192.168.100.51 (internal_host)=203, 192.168.100.50 (kali_attacker)=202, 185.125.190.27=4, 192.168.100.1 (gateway)=1
+Top dest IPs: 192.168.100.51 (internal_host)=205, 192.168.100.50 (kali_attacker)=201, 185.125.190.27=3, 192.168.100.1 (gateway)=1
+TCP flags: ACK=207, SYN=201, RST=200, FIN=2, PSH=2
+TCP distinct_dst_ports=203, top_ports=[(37058, 200), (48958, 4), (443, 3), (22, 2), (23, 1), (135, 1), (53, 1), (110, 1), (80, 1), (111, 1)]
+ARP: requests=3, replies=3, distinct_announced_IPs=3
+DNS queries: count=1, examples=['51.100.168.192.in-addr.arpa']
+Behavioral indicators: port_scan_signature (distinct_dst_ports=203, SYN=201, RST=200)"
+138,normal,,02_normal.pcap,43,"Time window #43: duration=5.9s, total_packets=25
+Protocol mix: TCP=23, UDP=2
+Top source IPs: 192.168.100.51 (internal_host)=12, 192.168.100.1 (gateway)=5, 91.189.91.98=4, 151.101.193.91=2, 192.168.100.50 (kali_attacker)=1
+Top dest IPs: 192.168.100.51 (internal_host)=11, 192.168.100.1 (gateway)=6, 91.189.91.98=4, 151.101.193.91=2, 62.106.94.7=1
+TCP flags: ACK=21, PSH=8, SYN=4, FIN=2
+TCP distinct_dst_ports=6, top_ports=[(53, 6), (47262, 5), (80, 4), (52786, 4), (443, 2), (56474, 2)]
+Behavioral indicators: none"
+139,normal,,02_normal.pcap,20,"Time window #20: duration=9.6s, total_packets=233
+Protocol mix: TCP=221, ICMP=8, ARP=4
+Top source IPs: 192.168.100.51 (internal_host)=122, 23.11.40.157=7, 80.251.45.14=6, 172.66.156.205=6, 3.165.245.25=5
+Top dest IPs: 192.168.100.51 (internal_host)=107, 23.11.40.157=10, 192.178.24.35=10, 104.18.38.233=8, 18.66.214.38=8
+TCP flags: ACK=219, PSH=48, FIN=28, RST=2
+TCP distinct_dst_ports=64, top_ports=[(443, 60), (80, 56), (47026, 5), (34206, 4), (57590, 4), (35394, 4), (60832, 4), (51650, 4), (40872, 4), (50898, 4)]
+ARP: requests=2, replies=2, distinct_announced_IPs=2
+Behavioral indicators: none"
